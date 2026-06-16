@@ -1,32 +1,32 @@
 package com.pluralsight.northwind_traders_springboot.model;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.AnyDiscriminatorImplicitValues;
+
 
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "product")
+@Table(name = "Products")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long product_id;
+    @Column(name = "ProductID")
+    private int productId;
+    @Column(name = "ProductName")
     private String name;
+    @ManyToOne
+    @JoinColumn(name = "CategoryID")
+    @Column(name = "CategoryID")
     private String category;
+    @Column(name ="UnitPrice")
     private BigDecimal price;
 
-    public Product(String name, String category, BigDecimal price) {
-        this.name = name;
-        this.category = category;
-        this.price = price;
+    public int getProductId() {
+        return productId;
     }
 
-    public Long getProduct_id() {
-        return product_id;
-    }
-
-    public void setProduct_id(Long product_id) {
-        this.product_id = product_id;
+    public void setProductId(int productId) {
+        this.productId = productId;
     }
 
     public String getName() {

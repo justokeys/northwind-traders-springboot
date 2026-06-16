@@ -8,8 +8,8 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @Repository
-public interface ProductRepository extends JpaRepository<Product , Long> {
-    Product findByProductId(Long id);
-    List<Product> findByPriceLessthan(BigDecimal targetPrice);
+public interface ProductRepository extends JpaRepository<Product , Integer> {
+    Product findByProductId(int id);
 
+   List<Product> findByPriceLessThan(BigDecimal targetPrice);
 }
